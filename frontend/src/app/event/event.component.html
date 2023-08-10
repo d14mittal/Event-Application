@@ -1,0 +1,48 @@
+<h1>Event CRUD Application</h1>
+
+<form (ngSubmit)="searchEvent()">
+  <label for="name">Name:</label>
+  <input type="text" [(ngModel)]="searchParam" name="name" id="search-input" autocomplete="off">
+  <button type="submit"> Search Event </button>
+</form>
+
+<button (click)="ngOnInit()">Clear Search</button>
+
+<form>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Host</th>
+        <th>Date</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let event of eventList">
+        <td> {{ event.name }} </td>
+        <td>{{event.host}}</td>
+        <td>{{event.date}}</td>
+        <td>{{event.location}}</td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<form (ngSubmit)="createEvent()" id="create-event">
+  <label for="name">Name:</label>
+  <input type="text" [(ngModel)]="event.name" name="name" id="event-name" autocomplete="off">
+
+  <label for="host">Host:</label>
+  <input type="text" [(ngModel)]="event.host" name="host" id="event-host" autocomplete="off">
+
+  <label for="date">Date:</label>
+  <input type="text" [(ngModel)]="event.date" name="date" id="event-date" autocomplete="off">
+
+  <label for="location">Location:</label>
+  <input type="text" [(ngModel)]="event.location" name="location" id="event-location" autocomplete="off">
+
+  <button type="submit"> Create Event </button>
+
+</form>
